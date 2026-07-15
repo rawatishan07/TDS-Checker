@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_excel("OUTSTANDING-DSS-GSIR-260622 (1).xlsx")
+df = pd.read_excel("TDS_Check.xlsx")
 
 df["Invoice Total Amt."] = pd.to_numeric(df["Invoice Total Amt."], errors="coerce")
 df["Debit BAL"] = pd.to_numeric(df["Debit BAL"], errors="coerce")
@@ -29,4 +29,4 @@ df["Detected TDS Rate"] = df["Debit %"].apply(identify_tds)
 df = df[df["Detected TDS Rate"] != "No Match"]
 
 print(df)
-df.to_excel("tds_check_04.xlsx", index=False)
+df.to_excel("tds_check_01.xlsx", index=False)
